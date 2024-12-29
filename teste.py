@@ -17,9 +17,8 @@ def gerar_embeddings(texto, modelo):
 texto_exemplo = "Olá, a Todos é um Ótimo Ano Novo!"
 
 # Gerando embeddings
-vetor_embeddings = gerar_embeddings(texto_exemplo, modelo)
+vetor_embeddings = gerar_embeddings(texto_exemplo, modelo=modelo)
 
 # Exibindo o vetor de embeddings
 print("Tamanho do vetor de embeddings:", len(vetor_embeddings))
 print("Valores iniciais do vetor de embeddings:", vetor_embeddings[:10])
-
