@@ -1,18 +1,21 @@
+# Certifique-se de ter instalado as bibliotecas necessárias
+# pip install ollama
+# pip install numpy
+
 import ollama
 import numpy as np
 
-# Conectando ao Ollama
-ollama_api_key = 'AIzaSyD0E-yGfeh8brGCn5JxTrj8jDZaEUNNG2Y'
-client = ollama.Client(api_key=ollama_api_key)
+# Configurando a chave de API
+ollama.api_key = 'AIzaSyD0E-yGfeh8brGCn5JxTrj8jDZaEUNNG2Y'  # Substitua pela sua chave de API
 
 # Função para gerar embeddings
 def gerar_embeddings(texto):
-    response = client.embedding(texto)
+    response = ollama.embedding(texto)
     embeddings = response['data'][0]['embeddings']
     return np.array(embeddings)
 
 # Texto de exemplo
-texto_exemplo = "Olá a Todos e um Ótimo Final de Ano!"
+texto_exemplo = "Olá, mundo!"
 
 # Gerando embeddings
 vetor_embeddings = gerar_embeddings(texto_exemplo)
