@@ -6,7 +6,7 @@ ollama.api_key = 'AIzaSyD0E-yGfeh8brGCn5JxTrj8jDZaEUNNG2Y'
 
 # Função para gerar embeddings
 def gerar_embeddings(texto):
-    response = ollama.embedding(texto)
+    response = ollama.embeddings(texto)
     embeddings = response['data'][0]['embeddings']
     return np.array(embeddings)
 
