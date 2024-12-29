@@ -1,12 +1,8 @@
-# Certifique-se de ter instalado as bibliotecas necessárias
-# pip install ollama
-# pip install numpy
-
 import ollama
 import numpy as np
 
 # Configurando a chave de API
-ollama.api_key = 'AIzaSyD0E-yGfeh8brGCn5JxTrj8jDZaEUNNG2Y'  # Substitua pela sua chave de API
+ollama.api_key = 'AIzaSyD0E-yGfeh8brGCn5JxTrj8jDZaEUNNG2Y'
 
 # Função para gerar embeddings
 def gerar_embeddings(texto):
