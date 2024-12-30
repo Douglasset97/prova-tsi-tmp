@@ -1,4 +1,5 @@
 import ollama
+import gensim.downloader as api
 
 # Função para conectar ao Ollama e gerar embeddings
 def gerar_embeddings(texto):
