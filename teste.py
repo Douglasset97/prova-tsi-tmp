@@ -1,8 +1,8 @@
 import ollama
 import gensim.downloader as api
 
-# Carregar o modelo de Word2Vec 
-model = api.load("word2vec-google-news-300")
+# Carregar um modelo menor, como "glove-wiki-gigaword-50"
+model = api.load("glove-wiki-gigaword-50")
 
 # Realizar a operação correta usando as palavras positivas e negativas
 resultado = model.most_similar(positive=['woman', 'king'], negative=['man'], topn=5)
