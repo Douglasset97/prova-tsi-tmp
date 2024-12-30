@@ -3,7 +3,7 @@ import ollama
 # Função para conectar ao Ollama e gerar embeddings
 def gerar_embeddings(texto):
     # Conectar ao Ollama (substitua 'SEU_ENDPOINT' e 'SUA_CHAVE' pelas suas credenciais)
-    client = ollama.Client(endpoint='https://github.com/Douglasset97/Novo-tmp.git', api_key='AIzaSyD0E-yGfeh8brGCn5JxTrj8jDZaEUNNG2Y')
+    client = ollama.Client(endpoint='https://github.com/Douglasset97/prova-tsi-tmp.git', api_key='AIzaSyD0E-yGfeh8brGCn5JxTrj8jDZaEUNNG2Y')
     
     # Gerar embeddings
     embeddings = client.create_embeddings(texto)
