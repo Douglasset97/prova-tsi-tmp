@@ -1,30 +1,13 @@
 import ollama
 import gensim.downloader as api
 
-# Função para conectar ao Ollama e gerar embeddings
-def gerar_embeddings(texto):
-    # Conectar ao Ollama (substitua 'SEU_ENDPOINT' e 'SUA_CHAVE' pelas suas credenciais)
-    client = ollama.Client(endpoint='https://github.com/Douglasset97/prova-tsi-tmp.git', api_key='72e2d81a-bb56-44b4-9dc0-5174c36f9dd4')
-    
-    # Gerar embeddings
-    embeddings = client.create_embeddings(texto)
-    
-    return embeddings
+# Carregar o modelo de Word2Vec pré-treinado
+model = api.load("word2vec-google-news-300")  # Modelo com maior capacidade para capturar relações semânticas complexas
 
-# Função para encontrar palavras similares utilizando Ollama
-def encontrar_similares(embeddings, positivo, negativo, topn=5):
-    # Exemplo simplificado de manipulação de embeddings
-    # Você pode adicionar a lógica para usar vetores positivos e negativos aqui
-    # Esta parte do código dependerá da API específica do Ollama e como ela suporta essas operações
+# Realizar a operação correta usando palavras positivas e negativas
+resultado = model.most_similar(positive=['woman', 'king'], negative=['man'], topn=5)
 
-    # Exibir os primeiros resultados para fins de exemplo
-    print(f"Embeddings gerados: {embeddings[:topn]}")
-
-# Fornecer um texto simples
-texto = "Exemplo de frase para gerar embeddings"
-
-# Gerar os vetores de embeddings
-vetor_embeddings = gerar_embeddings(texto)
-
-# Realizar a operação com palavras positivas e negativas (adapte conforme necessário)
-encontrar_similares(vetor_embeddings, positivo=['woman', 'king'], negativo=['man'], topn=5)
+# Imprimir resultados
+print("Palavras encontradas para a expressão 'Rei - Homem + Mulher':")
+for palavra, similaridade in resultado:
+    print(f"{palavra}: {similaridade}")
